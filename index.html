@@ -71,7 +71,7 @@
             <h1>{{book.author}}</h1>
             <h3>{{book.title}}</h3>    
             <img :src="book.image" :title="book.title">
-            <button @click="book.isFav=!book.isFav">Favourite</button>
+            <button @click="toggleFav(book)">Favourite</button>
         </div>
         </div>
 

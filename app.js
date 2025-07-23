@@ -14,7 +14,7 @@ const app = Vue.createApp({
         {
           title: "Way of Kings",
           author: "Brandon Sanderson",
-          isFav: true,
+          isFav: false,
           image:
             "https://img.freepik.com/free-vector/minimalist-book-cover-template_23-2148899519.jpg?semt=ais_hybrid&w=740",
         },
@@ -41,9 +41,8 @@ const app = Vue.createApp({
       this.x = event.offsetX;
       this.y = event.offsetY;
     },
-    toggleFav() {
-      this.isFav = !this.isFav
-      console.log(this)
+    toggleFav(book) {
+      book.isFav = !book.isFav
     }
   },
 });
