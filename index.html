@@ -65,14 +65,13 @@
     <h1>Hello, Vue :)</h1>
 
     <div id="app">
-        
         <div v-if="showBooks" class="book-wrapper">
-        <div class="book" v-for="book in books" :class="{ fav: book.isFav }">
-            <h1>{{book.author}}</h1>
-            <h3>{{book.title}}</h3>    
-            <img :src="book.image" :title="book.title">
-            <button @click="toggleFav(book)">Favourite</button>
-        </div>
+            <div class="book" v-for="book in filteredBooks" :class="{ fav: book.isFav }">
+                <h1>{{book.author}}</h1>
+                <h3>{{book.title}}</h3>    
+                <img :src="book.image" :title="book.title">
+                <button @click="toggleFav(book)">Favourite</button>
+            </div>
         </div>
 
         <button @click="toggleShowBooks">
@@ -92,8 +91,7 @@
         <div class="box" @click="handleEvent">click</div>
         <div class="box" @dblclick="handleEvent">doubleclick</div>
         <div class="box" @mousemove="handleMousemove">Postion: {{ x }}, {{ y }}</div>
-
-        
+   
     </div>
   </body>
   <script src="app.js"></script>

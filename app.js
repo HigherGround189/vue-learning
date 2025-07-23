@@ -7,21 +7,21 @@ const app = Vue.createApp({
         {
           title: "Name of the Wind",
           author: "Patrick Rothfuss",
-          isFav: false,
+          isFav: true,
           image:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOhG5b8J6j2wDkN_mLnxSEGShCfUui1LEuZA&s",
         },
         {
           title: "Way of Kings",
           author: "Brandon Sanderson",
-          isFav: false,
+          isFav: true,
           image:
             "https://img.freepik.com/free-vector/minimalist-book-cover-template_23-2148899519.jpg?semt=ais_hybrid&w=740",
         },
         {
           title: "The Final Empire",
           author: "Brandon Sanderson",
-          isFav: false,
+          isFav: true,
           image:
             "https://static.vecteezy.com/system/resources/previews/022/159/444/non_2x/book-cover-green-thick-booklet-design-old-classic-book-cover-design-vector.jpg",
         },
@@ -45,6 +45,11 @@ const app = Vue.createApp({
       book.isFav = !book.isFav
     }
   },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFav)
+    }
+  }
 });
 
 app.mount("#app");
