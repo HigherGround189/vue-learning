@@ -21,8 +21,8 @@
     <h1>Hello, Vue :)</h1>
 
     <div id="app">
-      <div v-if="showBooks">
-        <p>{{ title }}-{{ author }}-{{ age }}</p>
+      <div v-if="showBooks" v-for="book in books">
+        <p>{{ book.title }} - {{ book.author }}</p>
       </div>
 
         <button @click="toggleShowBooks">
@@ -38,6 +38,7 @@
         <div class="box" @dblclick="handleEvent">doubleclick</div>
         <div class="box" @mousemove="handleMousemove">Postion: {{ x }}, {{ y }}</div>
 
+        
     </div>
   </body>
   <script src="app.js"></script>
