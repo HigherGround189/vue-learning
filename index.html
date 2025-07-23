@@ -15,22 +15,56 @@
             display: inline-block;
             user-select: none;
         }
+
+        .book-wrapper {
+            display: flex;
+        }
+
+        .book {
+            border: 3px black solid;
+            width: 20vw;
+            height: 40vh;
+            
+            margin: 1rem;
+            padding: 1rem;
+
+            text-align: center;
+        }
+
+        .book > img {
+            width: 80%;
+            height: 70%;
+        }
+
+        .fav {
+            border-color: orchid;
+        }
     </style>
   </head>
   <body>
     <h1>Hello, Vue :)</h1>
 
     <div id="app">
-      <div v-if="showBooks" v-for="book in books">
-        <p>{{ book.title }} - {{ book.author }}</p>
-      </div>
+        
+        <div v-if="showBooks" class="book-wrapper">
+        <div class="book" v-for="book in books" :class="{ fav: book.isFav }">
+            <h1>{{book.author}}</h1>
+            <h3>{{book.title}}</h3>    
+            <img :src="book.image" :title="book.title">
+        </div>
+        </div>
 
         <button @click="toggleShowBooks">
             <span v-if="showBooks">Hide Books</span>
             <span v-else>Show Books</span>
         </button>      
 
+        <br><br>
+
+        <a :href="url">Website</a>
+
         <br>
+
         <!-- mouse-events -->
         <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
         <div class="box" @mouseleave="handleEvent">mouseleave (exit)</div>
