@@ -6,6 +6,14 @@
     <title>Vue Learning</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: 0.3s all;
+            font-family: "Poppins", sans-serif;
+        }
+
         .box {
             padding: 100px 0;
             width: 400px;
@@ -23,8 +31,13 @@
         .book {
             border: 3px black solid;
             width: 20vw;
-            height: 40vh;
+            min-height: 40vh;
             
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 1rem;
+
             margin: 1rem;
             padding: 1rem;
 
@@ -36,8 +49,15 @@
             height: 70%;
         }
 
+        .book > button {
+            width: 50%;
+            padding: 0.25rem;
+            border-radius: 10vw;
+            cursor: pointer;
+        }
+
         .fav {
-            border-color: orchid;
+            background-color: rgba(223, 168, 221, 0.377);
         }
     </style>
   </head>
@@ -51,6 +71,7 @@
             <h1>{{book.author}}</h1>
             <h3>{{book.title}}</h3>    
             <img :src="book.image" :title="book.title">
+            <button @click="book.isFav=!book.isFav">Favourite</button>
         </div>
         </div>
 
