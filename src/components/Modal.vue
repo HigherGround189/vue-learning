@@ -1,18 +1,23 @@
 <template>
     <div class="backdrop">
         <div class="modal">
+            <h1>Modal Title</h1>
             <p>Modal Content</p>
         </div>
     </div>
 </template>
 
-<style>
+<style scoped>
     .modal {
         width: 400px;
         padding: 20px;
         margin: 100px auto;
         background: white;
         border-radius: 10px;
+    }
+
+    .modal > h1 {
+        color: rgb(88, 14, 14);
     }
 
     .backdrop {
