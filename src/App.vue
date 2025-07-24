@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1><br>
   <input type="text" ref="name">
   <button @click="handleClick">Click me</button>
-  <Modal/>
+  <Modal :modal="modal" theme="sale"/>
 </template>
 
 <script>
@@ -13,7 +13,8 @@ export default {
   components: { Modal },
   data() {
     return {
-      title: "My first Vue App :)"
+      title: "My first Vue App :)",
+      modal: {"header": "Header binded", "content": "Content binded"}
     }
   },
   methods: {
