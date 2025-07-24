@@ -2,11 +2,13 @@
   <h1>{{ title }}</h1><br><br/>
   <input type="text" ref="name">
   <button @click="handleClick">Click me</button>
-  <Modal v-for="(modal, index) in modals" :modal="modal" :index="index">
-    <template v-slot:welcome>
-      <p v-if="index === 0">Welcome...</p>
-    </template>
-  </Modal>
+  <teleport to="#modals">
+    <Modal v-for="(modal, index) in modals" :modal="modal" :index="index">
+      <template v-slot:welcome>
+        <p v-if="index === 0">Welcome...</p>
+      </template>
+    </Modal>
+  </teleport>
 </template>
 
 <script>
@@ -41,7 +43,7 @@ export default {
 </script>
 
 <style>
-#app {
+#app, #modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
