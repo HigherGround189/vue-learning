@@ -1,8 +1,10 @@
 <template>
-  <h1>{{ title }}</h1><br>
+  <h1>{{ title }}</h1><br><br/>
   <input type="text" ref="name">
   <button @click="handleClick">Click me</button>
-  <Modal :modal="modal" theme="sale"/>
+  <Modal :modal="modal" theme="sale" @closeModal="toggleModal" v-show="showModal"/>
+  <p>Welcome...</p>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
@@ -14,7 +16,8 @@ export default {
   data() {
     return {
       title: "My first Vue App :)",
-      modal: {"header": "Header binded", "content": "Content binded"}
+      modal: {"header": "Header binded", "content": "Content binded"},
+      showModal: false
     }
   },
   methods: {
@@ -22,6 +25,9 @@ export default {
       console.log(this.$refs.name)
       this.$refs.name.classList.add("active")
       this.$refs.name.focus()
+    },
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   }
 }
@@ -35,6 +41,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+p {
+  margin-block: 1rem;
+  font-style: italic;
+}
+
+input {
+  margin-right: 0.5rem;
 }
 
 h1 {
