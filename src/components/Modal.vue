@@ -73,7 +73,7 @@ export default {
   margin: 30px 0 10px 0;
 }
 
-::v-deep .modal .actions a {
+:deep(.modal .actions a) {
   color: #333;
   padding: 8px;
   border: 1px solid #cac8c8;
