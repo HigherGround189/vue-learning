@@ -2,9 +2,16 @@
   <h1>{{ title }}</h1><br><br/>
   <input type="text" ref="name">
   <button @click="handleClick">Click me</button>
-  <Modal :modal="modal" theme="sale" @closeModal="toggleModal" v-show="showModal"/>
+  <Modal :modal="modal" theme="sale" @closeModal="toggleModal" v-show="showModal">
+    <template v-slot:links>
+      <a href="#">Sign up now</a>
+      <a href="#">More info</a>
+    </template>
+    <h1>Header Content</h1>
+    <p>Text Content</p>
+  </Modal>
   <p>Welcome...</p>
-  <button @click.shift="toggleModal">Show Modal</button>
+  <button @click="toggleModal">Show Modal</button>
 </template>
 
 <script>
