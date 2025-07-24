@@ -1,6 +1,6 @@
 <template>
-  <div class="backdrop" @click.self="closeModal">
-    <div class="modal" :class="{ sale: theme === 'sale' }">
+  <div class="backdrop" v-show="visibility" @click.self="closeModal">
+    <div class="modal" :class="theme">
       <slot></slot>
       <div class="actions">
         <slot name="links"></slot>
@@ -11,10 +11,10 @@
 
 <script>
 export default {
-  props: ['modal', 'theme'],
+  props: ['theme', 'visibility'],
   methods: {
     closeModal() {
-      this.$emit("closeModal")
+      this.$emit('closeModal')
     }
   }
 }
@@ -42,8 +42,16 @@ export default {
   height: 100%;
 }
 
-.modal.sale {
+.modal.first {
   border: 3px orchid solid;
+}
+
+.modal.second {
+  border: 3px rebeccapurple solid;
+}
+
+.modal.third {
+  border: 3px steelblue solid;
 }
 
 .modal .actions {

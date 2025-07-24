@@ -2,16 +2,20 @@
   <h1>{{ title }}</h1><br><br/>
   <input type="text" ref="name">
   <button @click="handleClick">Click me</button>
-  <Modal :modal="modal" theme="sale" @closeModal="toggleModal" v-show="showModal">
+  <Modal v-for="modal in modals" :theme="modal.theme" :visibility="modal.visibility" @closeModal="modal.visibility = !modal.visibility">
     <template v-slot:links>
       <a href="#">Sign up now</a>
       <a href="#">More info</a>
     </template>
-    <h1>Header Content</h1>
-    <p>Text Content</p>
+    <h1> {{ modal.h1 }}</h1>
+    <p>{{ modal.p }}</p>
   </Modal>
   <p>Welcome...</p>
-  <button @click="toggleModal">Show Modal</button>
+  <button @click="modals[0].visibility = !modals[0].visibility">Show Modal 1</button>
+  <br/><br/>
+  <button @click="modals[1].visibility = !modals[1].visibility">Show Modal 2</button>
+  <br/><br/>
+  <button @click="modals[2].visibility = !modals[2].visibility">Show Modal 3</button>
 </template>
 
 <script>
@@ -23,8 +27,11 @@ export default {
   data() {
     return {
       title: "My first Vue App :)",
-      modal: {"header": "Header binded", "content": "Content binded"},
-      showModal: false
+      modals: [
+        {h1: "Modal the 1st", p: "I'm the first modal", theme: "first", visibility : false},
+        {h1: "Modal the 2nd", p: "I'm the second modal", theme: "second", visibility : false},
+        {h1: "Modal the 3rd", p: "I'm the third modal", theme: "third", visibility : false}
+      ],
     }
   },
   methods: {
@@ -33,8 +40,9 @@ export default {
       this.$refs.name.classList.add("active")
       this.$refs.name.focus()
     },
-    toggleModal() {
-      this.showModal = !this.showModal
+    toggleModal(modalComponent) {
+      console.log(modalComponent)
+      modalComponent.showModal = !modalComponent.showModal
     }
   }
 }
