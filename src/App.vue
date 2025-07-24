@@ -4,7 +4,7 @@
   <button @click="handleClick">Click me</button>
   <Modal :modal="modal" theme="sale" @closeModal="toggleModal" v-show="showModal"/>
   <p>Welcome...</p>
-  <button @click="toggleModal">Show Modal</button>
+  <button @click.shift="toggleModal">Show Modal</button>
 </template>
 
 <script>
