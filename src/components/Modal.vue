@@ -1,20 +1,30 @@
 <template>
-  <div class="backdrop" v-show="visibility" @click.self="closeModal">
-    <div class="modal" :class="theme">
-      <slot></slot>
+  <div class="backdrop" v-show="visibility" @click.self="toggleModal">
+    <div class="modal" :class="modal.theme">
+      <h1> {{ modal.h1 }}</h1>
+      <p>{{ modal.p }}</p>
       <div class="actions">
-        <slot name="links"></slot>
+        <a href="#">Sign up now</a>
+        <a href="#">More info</a>
       </div>
     </div>
   </div>
+  <slot name="welcome"></slot>
+  <br/><br/>
+  <button @click="toggleModal">Show Modal {{ index + 1 }}</button>
 </template>
 
 <script>
 export default {
-  props: ['theme', 'visibility'],
+  props: ['modal', 'index'],
+  data() {
+    return {
+      visibility: false
+    }
+  },
   methods: {
-    closeModal() {
-      this.$emit('closeModal')
+    toggleModal() {
+      this.visibility = !this.visibility
     }
   }
 }
@@ -51,7 +61,11 @@ export default {
 }
 
 .modal.third {
-  border: 3px steelblue solid;
+  border: 3px navy solid;
+}
+
+.modal.fourth {
+  border: 3px orange solid;
 }
 
 .modal .actions {
