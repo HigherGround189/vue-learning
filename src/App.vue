@@ -18,10 +18,8 @@ export default {
   },
   methods: {
     start() {
-      this.delay = 2000 + Math.round(Math.random() * 3000)
+      this.delay = 2000 + Math.round(Math.random() * 10000)
       this.isPlaying = true
-
-      console.log(`${this.delay}ms`)
     }
   }
 
