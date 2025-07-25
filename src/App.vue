@@ -1,5 +1,5 @@
 <template>
-  <p>Hello World</p>
+  <h1>Ninja Reaction Template</h1>
 </template>
 
 <script setup>
