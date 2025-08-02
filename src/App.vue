@@ -1,16 +1,17 @@
 <template>
   <h1>Ninja Reaction Template</h1>
   <button @click="start" :disabled="isPlaying">Play</button>
-  <p v-if="showResults">Reaction Time: {{ score }} </p>
   <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
+  <Results :showResults="showResults" :score="score"/>
 </template>
 
 <script>
 import Block from "./components/Block.vue"
+import Results from "./components/Results.vue"
 
 export default {
   name: "App",
-  components: { Block },
+  components: { Block, Results },
   data() {
     return {
       isPlaying: false,
@@ -40,7 +41,7 @@ export default {
     margin-bottom: 1rem;
   }
 
-  p {
+  div {
     margin-block: 1rem;
   }
 </style>
