@@ -1,10 +1,23 @@
 <template>
-  <div></div>
+  <div ref="circle"></div>
 </template>
 
 <script>
+  import { ref } from 'vue'
+
   export default {
-    
+    data() {
+      return {
+        center: null,
+      }
+    },
+
+    mounted() {
+      const rect = this.$refs.circle.getBoundingClientRect()
+      const xCenter = rect.width / 2
+      
+      this.center = xCenter
+    }
   }
 </script>
 
@@ -17,6 +30,6 @@
   }
 
   div:hover {
-    width: 10vh;
+    width: 8vh;
   }
 </style>
