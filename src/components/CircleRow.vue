@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Circles v-for="n in 10" :mouseX="mouseX" :mouseY="mouseY"/>
+    <Circles v-for="n in 28" :mouseX="mouseX" :mouseY="mouseY"/>
     <!-- <p> X: {{ mouseX }}, Y: {{ mouseY }}</p> -->
   </div>
 </template>

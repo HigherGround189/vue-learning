@@ -1,6 +1,6 @@
 <template>
   <div class="circle-wrapper">
-    <CircleRow v-for="n in 8" :mouseX="mouseX" :mouseY="mouseY"/>
+    <CircleRow v-for="n in 12" :mouseX="mouseX" :mouseY="mouseY"/>
   </div>
 </template>
 
@@ -21,7 +21,7 @@
           this.mouseX = event.clientX;
           this.mouseY = event.clientY;
 
-          console.log(`Mouse position: X=${this.mouseX}, Y=${this.mouseY}`);
+          // console.log(`Mouse position: X=${this.mouseX}, Y=${this.mouseY}`);
         });
     }
   }
