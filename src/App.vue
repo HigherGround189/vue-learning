@@ -1,6 +1,6 @@
 <template>
   <div class="circle-wrapper">
-    <CircleRow v-for="n in 8"/>
+    <CircleRow v-for="n in 8" :mouseX="mouseX" :mouseY="mouseY"/>
   </div>
 </template>
 
@@ -9,7 +9,21 @@
 
   export default {
     name: "App",
-    components: { CircleRow }
+    components: { CircleRow },
+    data() {
+      return {
+        mouseX: null,
+        mouseY: null
+      }
+    },
+    mounted() {
+        document.addEventListener('mousemove', (event) => {
+          this.mouseX = event.clientX;
+          this.mouseY = event.clientY;
+
+          console.log(`Mouse position: X=${this.mouseX}, Y=${this.mouseY}`);
+        });
+    }
   }
 </script>
 

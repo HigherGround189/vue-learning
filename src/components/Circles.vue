@@ -6,6 +6,7 @@
   import { ref } from 'vue'
 
   export default {
+    props: ["mouseX", "mouseY"],
     data() {
       return {
         center: null,
