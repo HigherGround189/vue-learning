@@ -14,7 +14,7 @@
 
     mounted() {
       const rect = this.$refs.circle.getBoundingClientRect()
-      const xCenter = rect.width / 2
+      const xCenter = rect.left + rect.width / 2
       
       this.center = xCenter
     }
