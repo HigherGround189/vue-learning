@@ -1,22 +1,39 @@
 <template>
   <form>
-    <label>Email: </label>
-    <input type="email" required v-model="email"/>
+    <label>
+      Email:
+      <input type="email" required v-model="email"/>
+    </label>
 
-    <label>Password: </label>
-    <input type="password" required v-model="password"/>
+    <label>
+      Password:
+      <input type="password" required v-model="password"/>
+    </label>
 
-    <label>Role:</label>
-    <select v-model="role">
-      <option value="Developer">Web Developer</option>
-      <option value="Designer">Web Designer</option>
-    </select>
+    <label>
+      Role:
+      <select v-model="role">
+        <option value="Developer">Web Developer</option>
+        <option value="Designer">Web Designer</option>
+      </select>
+    </label>
+
+    <div class="terms">
+      <label>
+        <input type="checkbox" v-model="terms" required>
+        Accept Terms and Conditions
+      </label>
+    </div>
+
   </form>
 
   <p>Email: {{ email }}</p>
   <br/>
   <p>Password: {{ password }}</p>
+  <br>
   <p>Role: {{ role }}</p>
+  <br>
+  <p>{{ terms ? "Terms Accepted ✅" : "Terms not Accepted ❌" }}</p>
 </template>
 
 <script>
@@ -25,7 +42,8 @@
       return {
         email: "",
         password: "",
-        role: ""
+        role: "",
+        terms: false,
       }
     }
   }
@@ -58,5 +76,21 @@
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
+  }
+
+  input[type="checkbox"] {
+    display: inline-block;
+    width: 16px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 2px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input:not(:focus), label, select:not(:focus), option{
+    cursor: pointer;
   }
 </style>
