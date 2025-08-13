@@ -18,6 +18,14 @@
       </select>
     </label>
 
+    <label>
+      Skills:
+      <input type="text" v-model="tempSkill" @keyup="addSkill">
+      <div v-for="skill in skills" :key="skill" class="pill">
+        {{ skill }}
+      </div>
+    </label>
+
     <div class="terms">
       <label>
         <input type="checkbox" v-model="terms" required>
@@ -44,6 +52,16 @@
         password: "",
         role: "",
         terms: false,
+        tempSkill: "",
+        skills: []
+      }
+    },
+    methods: {
+      addSkill(e) {
+        if (e.key === "Enter" && this.tempSkill && !this.skills.includes(this.tempSkill)) {
+          this.skills.push(this.tempSkill)
+          this.tempSkill = ""
+        }
       }
     }
   }
@@ -90,7 +108,7 @@
     display: block;
   }
 
-  input:not(:focus), label, select:not(:focus), option{
+  /* input:not(:focus), label, select:not(:focus), option{
     cursor: pointer;
-  }
+  } */
 </style>
